@@ -1,0 +1,51 @@
+/* src/components/Login.css */
+.login-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  .login-form input {
+    width: 100%;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .login-form button {
+    width: 100%;
+    padding: 0.5rem;
+    background: #4f9eed;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+  
+  .login-form button:hover {
+    background: #1e40af;
+  }
+  
+  .register-link {
+    margin-top: 1rem;
+    text-align: center;
+  }
+  
+  .register-link p {
+    margin: 0;
+  }
+  
+  .register-link a {
+    color: #4f9eed;
+    text-decoration: none;
+  }
+  
+  .register-link a:hover {
+    text-decoration: underline;
+  }
+  

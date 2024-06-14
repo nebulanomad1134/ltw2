@@ -1,0 +1,34 @@
+.manage-places {
+    padding: 1rem;
+  }
+  
+  .manage-places h2 {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  .manage-places .table-container {
+    margin-bottom: 2rem;
+  }
+  
+  .manage-places .table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .manage-places .table th,
+  .manage-places .table td {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+  }
+  
+  .manage-places .table th {
+    background-color: #f4f4f4;
+  }
+  
+  .manage-places .table td a,
+  .manage-places .table td button {
+    margin-right: 0.5rem;
+  }
+  

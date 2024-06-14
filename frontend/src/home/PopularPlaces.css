@@ -1,0 +1,46 @@
+.popular-places {
+    margin-top: 2rem;
+    padding: 0 2rem;
+}
+
+.popular-places h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.place-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.place-card {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 20rem;
+}
+
+.place-card img {
+    width: 100%;
+    border-radius: 0.5rem;
+}
+
+.place-card .info {
+    margin-top: 1rem;
+}
+
+.place-card h3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.place-card p {
+    margin: 0.5rem 0;
+    color: #333;
+}

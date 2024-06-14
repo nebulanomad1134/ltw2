@@ -1,0 +1,21 @@
+.dashboard-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .dashboard-layout {
+      flex-direction: row;
+    }
+  }
+  
+  .sidebar {
+    width: 250px; /* Adjust width as needed */
+  }
+  
+  .content {
+    flex-grow: 1;
+    padding: 1rem;
+  }
+  
