@@ -6,7 +6,7 @@ const PopularPlaces = () => {
     const [places, setPlaces] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/api/places").then(res => res.json()).then(data => setPlaces(data.slice(5, 12)));
+        fetch("http://localhost:5000/api/places").then(res => res.json()).then(data => setPlaces(data.slice(1, 12)));
     }, []);
 
     return (
