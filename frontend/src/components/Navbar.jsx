@@ -17,6 +17,7 @@ const Navbar = () => {
     { link: "About", path: "/about" },
     { link: "Shop", path: "/shop" },
     { link: "Blog", path: "/blog" },
+    { link: "Contact", path: "/contact" },
   ];
 
   if (user && user.role === 'admin') {

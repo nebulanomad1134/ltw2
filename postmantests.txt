@@ -1,0 +1,13 @@
+Delete a Review from a Specific Place
+http://localhost:5000/api/places/:placeId/reviews/:reviewId
+
+Get Reviews for a Specific Place
+http://localhost:5000/api/places/:placeId/reviews
+
+Add a Review to a Specific Place post
+http://localhost:5000/api/places/:id/reviews
+
+Get All Reviews Across All Places (bearer)
+http://localhost:5000/api/places/reviews/all 
+
+admin token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NmIzNmIwZGEzNDRhYmIxYmY5N2ZhNSIsImlhdCI6MTcxODQ1ODU4MiwiZXhwIjoxNzIxMDUwNTgyfQ.PwE9Ni4q3_vcLpnkmQwG16z5pR7mGGLnG93Q63SkWCk

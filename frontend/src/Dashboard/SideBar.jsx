@@ -1,3 +1,4 @@
+// SideBar.jsx
 import React from 'react';
 import { HiArrowSmRight, HiChartPie, HiInbox, HiShoppingBag, HiSupport, HiTable, HiUser, HiViewBoards, HiOutlineCloudUpload } from 'react-icons/hi';
 import img from '../../src/assets/profile.jpg';
@@ -26,13 +27,9 @@ const SideBar = () => {
           <HiInbox />
           <span>Manage Books</span>
         </Link>
-        <Link className="sidebar-item" to="#">
+        <Link className="sidebar-item" to="/admin/dashboard/reviews">
           <HiUser />
-          <span>Users</span>
-        </Link>
-        <Link className="sidebar-item" to="#">
-          <HiShoppingBag />
-          <span>Products</span>
+          <span>Manage Reviews</span>
         </Link>
         <Link className="sidebar-item" to="/login">
           <HiArrowSmRight />
@@ -41,18 +38,6 @@ const SideBar = () => {
         <Link className="sidebar-item" to="/logout">
           <HiTable />
           <span>Log out</span>
-        </Link>
-        <Link className="sidebar-item" to="#">
-          <HiChartPie />
-          <span>Upgrade to Pro</span>
-        </Link>
-        <Link className="sidebar-item" to="#">
-          <HiViewBoards />
-          <span>Documentation</span>
-        </Link>
-        <Link className="sidebar-item" to="#">
-          <HiSupport />
-          <span>Help</span>
         </Link>
       </div>
     </div>
