@@ -3,9 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './App';
 import Home from './home/Home';
-import Shop from './shop/Shop';
 import PlaceDetails from './components/PlaceDetails';
-import Blog from './components/Blog';
 import About from './components/About';
 import Login from './components/Login';
 import Signup from './components/Signup';
@@ -26,10 +24,8 @@ const router = (
       <Routes>
         <Route path="/" element={<App />}>
           <Route path="/" element={<Home />} />
-          <Route path="/shop" element={<Shop />} />
           <Route path="/place/:id" element={<PlaceDetails />} loader={placeLoader} />
           <Route path="/about" element={<About />} />
-          <Route path="/blog" element={<Blog />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/contact" element={<Contact />} />

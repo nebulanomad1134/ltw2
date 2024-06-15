@@ -21,7 +21,11 @@ const EditPlaces = () => {
   ];
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/places/${id}`)
+    fetch(`http://localhost:5000/api/places/${id}`, {
+      headers: {
+        "Authorization": `Bearer ${user.token}`,
+      },
+    })
       .then(response => {
         if (!response.ok) {
           throw new Error('Failed to fetch place details');
@@ -36,7 +40,7 @@ const EditPlaces = () => {
         setError(error.message);
         setLoading(false);
       });
-  }, [id]);
+  }, [id, user.token]);
 
   const handleChangeSelectedValue = (event) => {
     setPlaceData(prevState => ({

@@ -1,27 +1,37 @@
 import { Table } from 'flowbite-react';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Pagination } from 'flowbite-react';
 import { Link } from 'react-router-dom';
+import AuthContext from '../context/AuthContext';
 import './ManagePlaces.css';
 
 const ManagePlaces = () => {
+  const { user } = useContext(AuthContext);
   const [allPlaces, setAllPlaces] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/places`)
+    fetch(`http://localhost:5000/api/places`, {
+      headers: {
+        "Authorization": `Bearer ${user.token}`,
+      }
+    })
       .then((res) => res.json())
       .then((data) => {
         setAllPlaces(data);
       });
-  }, []);
+  }, [user.token]);
 
   const handleDelete = (id) => {
     fetch(`http://localhost:5000/api/places/${id}`, {
       method: "DELETE",
+      headers: {
+        "Authorization": `Bearer ${user.token}`,
+      },
     })
       .then((res) => res.json())
       .then((data) => {
         // Handle deletion success
+        setAllPlaces(allPlaces.filter(place => place._id !== id));
       });
   };
 
