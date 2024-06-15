@@ -2,8 +2,10 @@ import { View, Text, StyleSheet, TextInput, Alert  } from 'react-native'
 import React, {useState} from 'react'
 import InputBox from '../../components/form/InputBox';
 import SubmitButton from '../../components/form/SubmitButton';
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import axios from 'axios';
 
-const Login = () => {
+const Login = ({navigation}) => {
     //states
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -20,6 +22,13 @@ const Login = () => {
             return;
           }
           setLoading(false);
+          const {data} = await axios.post("http://192.168.1.136:5000/api/auth/login", {
+            username,
+            password,
+          });
+          await AsyncStorage.setItem("@auth", JSON.stringify(data));
+          alert(data && data.message)
+          // navigation.navigate("Home");
           console.log("Login Data==> ", { username, password });
         } catch (error) {
           alert(error.response.data.message);
@@ -27,6 +36,13 @@ const Login = () => {
           console.log(error);
         }
     };
+
+    //check local storage data
+    const getLocalStorageData = async () => {
+      let data = await AsyncStorage.getItem('@auth')
+      console.log("Local Storage data ==>", data)
+    }
+    getLocalStorageData();
 
   return (
     <View style={styles.container}>
@@ -53,7 +69,7 @@ const Login = () => {
     <Text style={styles.linkText}>
       Not a user? {" "}
       <Text style={styles.link} onPress={() => navigation.navigate("Register")}>
-        Register
+        REGISTER
       </Text>{" "}
     </Text>
   </View>

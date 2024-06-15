@@ -4,7 +4,7 @@ import InputBox from '../../components/form/InputBox';
 import SubmitButton from '../../components/form/SubmitButton';
 import axios from "axios";
 
-const Register = () => {
+const Register = ({navigation}) => {
     //states
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -21,15 +21,15 @@ const Register = () => {
             return;
           }
           setLoading(false);
-        //   const { data } = await axios.post("/auth/register", {
-        //     username,
-        //     password,
-        //   });
-        //   alert(data && data.message);
-        //   navigation.navigate("Login");
+          const { data } = await axios.post("http://192.168.1.136:5000/api/auth/register", {
+            username,
+            password,
+          });
+          alert(data && data.message);
+          navigation.navigate("Login");
           console.log("Register Data==> ", { username, password });
         } catch (error) {
-          alert(error.response.data.message);
+          alert(error.response.data.message || "Register fail");
           setLoading(false);
           console.log(error);
         }
@@ -59,7 +59,10 @@ const Register = () => {
     />
     <Text style={styles.linkText}>
       Already have account? {" "}
-      <Text style={styles.link} onPress={() => navigation.navigate("Login")}>
+      <Text 
+      style={styles.link} 
+      onPress={() => navigation.navigate("Login")}
+      >
         LOGIN
       </Text>{" "}
     </Text>
