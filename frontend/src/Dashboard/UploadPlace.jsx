@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Button, Label, Select, TextInput, Textarea } from 'flowbite-react';
+import AuthContext from '../context/AuthContext';
 import './UploadPlace.css';
 
 const UploadPlace = () => {
+  const { user } = useContext(AuthContext);
   const placeTypes = [
     "Historical Landmarks",
     "Natural Attractions",
@@ -35,18 +37,26 @@ const UploadPlace = () => {
       image
     };
 
-    fetch("http://localhost:5000/api/places", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(placeObj),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        alert("Place uploaded successfully!");
-        form.reset();
-      });
+    if (user && user.token) {
+      fetch("http://localhost:5000/api/places", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+          "Authorization": `Bearer ${user.token}`,
+        },
+        body: JSON.stringify(placeObj),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          alert("Place uploaded successfully!");
+          form.reset();
+        })
+        .catch((error) => {
+          console.error("Error uploading place:", error);
+        });
+    } else {
+      console.error("User not authenticated or token is missing");
+    }
   };
 
   return (

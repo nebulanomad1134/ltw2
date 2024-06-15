@@ -1,3 +1,4 @@
+// DashboardLayout.jsx
 import React from 'react';
 import SideBar from './SideBar';
 import { Outlet } from 'react-router-dom';
@@ -15,3 +16,5 @@ export const DashboardLayout = () => {
     </div>
   );
 };
+
+// export default DashboardLayout;
