@@ -21,7 +21,7 @@ const Register = ({navigation}) => {
             return;
           }
           setLoading(false);
-          const { data } = await axios.post("http://192.168.1.136:5000/api/auth/register", {
+          const { data } = await axios.post("/auth/register", {
             username,
             password,
           });
