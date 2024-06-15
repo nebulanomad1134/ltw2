@@ -6,6 +6,9 @@ import Register from '../../screens/auth/Register';
 import Login from '../../screens/auth/Login';
 import HeaderMenu from './HeaderMenu';
 import { AuthContext } from '../../context/authContext';
+import Post from '../../screens/Post';
+import About from '../../screens/About';
+import Account from '../../screens/Account';
 
 
 const ScreenMenu = () => {
@@ -20,11 +23,41 @@ const ScreenMenu = () => {
         <Stack.Navigator initialRouteName='Login'>
             <Stack.Screen 
                 name='Home' 
-                component={Home} options={{
+                component={Home} 
+                options={{
                     title: "Place",
                     headerRight:() => <HeaderMenu/>
                 }}
             />
+
+            <Stack.Screen 
+                name='Post' 
+                component={Post} 
+                options={{
+                    headerBackTitle: "Post",
+                    headerRight:() => <HeaderMenu/>
+                }}
+            />
+
+            <Stack.Screen 
+                name='About' 
+                component={About} 
+                options={{
+                    headerBackTitle: "About",
+                    headerRight:() => <HeaderMenu/>
+                }}
+            />
+
+            <Stack.Screen 
+                name='Account' 
+                component={Account} 
+                options={{
+                    headerBackTitle: "Your Account",
+                    headerRight:() => <HeaderMenu/>
+                }}
+            />
+
+
             <Stack.Screen name='Register' component={Register} options={{headerShown: false}}/>
             <Stack.Screen name='Login' component={Login} options={{headerShown: false}}/>
         </Stack.Navigator>
