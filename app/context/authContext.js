@@ -1,3 +1,4 @@
+//context/authContext.js
 import React, {createContext, useEffect, useState} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
@@ -13,7 +14,7 @@ const AuthProvider = ({children}) => {
     });
 
 //default axios setting
-axios.defaults.baseURL = 'http://192.168.1.151:5000/api';
+axios.defaults.baseURL = 'http://192.168.214.120:5000/api';
 
     //user login -> data gets -> added to local stogare
     //initial => get local storage data

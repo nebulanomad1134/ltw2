@@ -26,7 +26,7 @@ const ScreenMenu = () => {
                 component={Home} 
                 options={{
                     title: "Place",
-                    headerRight:() => <HeaderMenu/>
+                    headerBackVisible: false,
                 }}
             />
 
@@ -34,8 +34,7 @@ const ScreenMenu = () => {
                 name='Post' 
                 component={Post} 
                 options={{
-                    headerBackTitle: "Post",
-                    headerRight:() => <HeaderMenu/>
+                    title: "Post",
                 }}
             />
 
@@ -43,8 +42,7 @@ const ScreenMenu = () => {
                 name='About' 
                 component={About} 
                 options={{
-                    headerBackTitle: "About",
-                    headerRight:() => <HeaderMenu/>
+                    title: "About us",
                 }}
             />
 
@@ -52,11 +50,10 @@ const ScreenMenu = () => {
                 name='Account' 
                 component={Account} 
                 options={{
-                    headerBackTitle: "Your Account",
+                    title: "Your Account",
                     headerRight:() => <HeaderMenu/>
                 }}
             />
-
 
             <Stack.Screen name='Register' component={Register} options={{headerShown: false}}/>
             <Stack.Screen name='Login' component={Login} options={{headerShown: false}}/>
