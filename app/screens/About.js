@@ -35,84 +35,90 @@ const About = () => {
       style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
-      <ScrollView contentContainerStyle={styles.scrollViewContent}>
-        <Text style={styles.title}>About us</Text>
-        <Text style={styles.description}>
-          Welcome to our rating place app! This app is your go-to guide for exploring the most famous places around the world. 
-          Share your experiences and read others' comments about various locations.
-        </Text>
+      <View style={styles.container}>
+        <ScrollView contentContainerStyle={styles.scrollViewContent}>
+          <Text style={styles.title}>About us</Text>
+          <Text style={styles.description}>
+            Welcome to our rating place app! This app is your go-to guide for exploring the most famous places around the world. 
+            Share your experiences and read others' comments about various locations.
+          </Text>
 
-        <Text style={styles.developersTitle}>Meet the Developers</Text>
-        <View style={styles.developerContainer}>
-          <View style={styles.developer}>
-            <Image
-              style={styles.avatar}
-              source={{ uri: 'https://scontent.fhan9-1.fna.fbcdn.net/v/t39.30808-6/427730106_1472602366686197_4180854381589349155_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEu36X00MjrD6g46t36PXxxYgT6yha_uQtiBPrKFr-5C68okzEMNAvKPktOQe5jjOd3O_mCx5yDa2p2HykreBMH&_nc_ohc=owZGJ7w9nHEQ7kNvgFJjdlc&_nc_ht=scontent.fhan9-1.fna&oh=00_AYD8__N0xbmfKLODSH3HoadJwDRD2TPBroA8u7snYdJ6tw&oe=66748B4C' }}
-            />
-            <Text style={styles.developerName}>mikecohi</Text>
+          <Text style={styles.developersTitle}>Meet the Developers</Text>
+          <View style={styles.developerContainer}>
+            <View style={styles.developer}>
+              <Image
+                style={styles.avatar}
+                source={{ uri: 'https://scontent.fhan9-1.fna.fbcdn.net/v/t39.30808-6/427730106_1472602366686197_4180854381589349155_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEu36X00MjrD6g46t36PXxxYgT6yha_uQtiBPrKFr-5C68okzEMNAvKPktOQe5jjOd3O_mCx5yDa2p2HykreBMH&_nc_ohc=owZGJ7w9nHEQ7kNvgFJjdlc&_nc_ht=scontent.fhan9-1.fna&oh=00_AYD8__N0xbmfKLODSH3HoadJwDRD2TPBroA8u7snYdJ6tw&oe=66748B4C' }}
+              />
+              <Text style={styles.developerName}>mikecohi</Text>
+            </View>
+            <View style={styles.developer}>
+              <Image
+                style={styles.avatar}
+                source={{ uri: 'https://i.pinimg.com/736x/c7/60/ab/c760abe4d6e1abf565e71baec5778247.jpg' }}
+              />
+              <Text style={styles.developerName}>nebulanomad1134</Text>
+            </View>
           </View>
-          <View style={styles.developer}>
-            <Image
-              style={styles.avatar}
-              source={{ uri: 'https://i.pinimg.com/736x/c7/60/ab/c760abe4d6e1abf565e71baec5778247.jpg' }}
+
+          <Text style={styles.title}>Contact Us</Text>
+
+          <View style={styles.inputContainer}>
+            <Text>Username:</Text>
+            <TextInput
+              style={styles.input}
+              value={state.username}
+              editable={false} // Make this field non-editable
             />
-            <Text style={styles.developerName}>nebulanomad1134</Text>
           </View>
-        </View>
 
-        <Text style={styles.title}>Contact Us</Text>
+          <View style={styles.inputContainer}>
+            <Text>Email:</Text>
+            <TextInput
+              style={styles.input}
+              value={form.email}
+              onChangeText={(value) => handleChange('email', value)}
+            />
+          </View>
 
-        <View style={styles.inputContainer}>
-          <Text>Username:</Text>
-          <TextInput
-            style={styles.input}
-            value={state.username}
-            editable={false} // Make this field non-editable
-          />
-        </View>
+          <View style={styles.inputContainer}>
+            <Text>Name:</Text>
+            <TextInput
+              style={styles.input}
+              value={form.name}
+              onChangeText={(value) => handleChange('name', value)}
+            />
+          </View>
 
-        <View style={styles.inputContainer}>
-          <Text>Email:</Text>
-          <TextInput
-            style={styles.input}
-            value={form.email}
-            onChangeText={(value) => handleChange('email', value)}
-          />
-        </View>
+          <View style={styles.inputContainer}>
+            <Text>Message:</Text>
+            <TextInput
+              style={[styles.input, styles.textarea]}
+              value={form.message}
+              onChangeText={(value) => handleChange('message', value)}
+              multiline
+            />
+          </View>
+          <Button title="Send" onPress={handleSubmit} />
+          {response ? <Text style={styles.response}>{response}</Text> : null}
+        </ScrollView>
+      </View>
 
-        <View style={styles.inputContainer}>
-          <Text>Name:</Text>
-          <TextInput
-            style={styles.input}
-            value={form.name}
-            onChangeText={(value) => handleChange('name', value)}
-          />
-        </View>
 
-        <View style={styles.inputContainer}>
-          <Text>Message:</Text>
-          <TextInput
-            style={[styles.input, styles.textarea]}
-            value={form.message}
-            onChangeText={(value) => handleChange('message', value)}
-            multiline
-          />
-        </View>
-        <Button title="Send" onPress={handleSubmit} />
-        {response ? <Text style={styles.response}>{response}</Text> : null}
-      </ScrollView>
-      <FooterMenu />
+      <View style={{flex: 1, justifyContent:"flex-end"}}>
+        <FooterMenu />
+      </View>
     </KeyboardAvoidingView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 6,
   },
   scrollViewContent: {
     padding: 10,
-    flexGrow: 1,
+    // flexGrow: 1,
   },
   title: {
     fontSize: 24,
