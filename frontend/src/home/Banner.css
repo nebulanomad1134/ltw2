@@ -1,0 +1,34 @@
+
+.banner {
+    background-image: url('../assets/banner.jpg'); 
+    background-size: cover;
+    background-position: center;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    
+}
+
+.banner-content {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 2rem;
+    border-radius: 8px;
+    width: 100%;
+    opacity: 0.8;
+    max-width: 800px;
+    text-align: center;
+}
+
+.banner-content h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #972D07;
+}
+
+.banner-content p {
+    font-size: 20px;
+    color: #666;
+}

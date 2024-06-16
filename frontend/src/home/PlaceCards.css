@@ -1,0 +1,11 @@
+.place-card .info h3 {
+    /* Styles for the place name */
+    color: blue;
+    font-weight: bold;
+  }
+  
+  .place-card .info p {
+    /* Styles for the place location */
+    color: gray;
+    font-style: italic;
+  }

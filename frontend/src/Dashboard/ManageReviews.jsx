@@ -1,6 +1,6 @@
-// ManageReviews.jsx
 import React, { useContext, useEffect, useState } from 'react';
 import AuthContext from '../context/AuthContext';
+import './ManageReviews.css';
 
 const ManageReviews = () => {
   const { user } = useContext(AuthContext);
@@ -33,41 +33,44 @@ const ManageReviews = () => {
   };
 
   const handleDeleteReview = async (placeId, reviewId) => {
-    if (user && user.token) {
-      try {
-        // Log placeId and reviewId for debugging
-        console.log('Deleting review:', { placeId, reviewId });
-  
-        const response = await fetch(`http://localhost:5000/api/places/${placeId}/reviews/${reviewId}`, {
-          method: 'DELETE',
-          headers: {
-            'Authorization': `Bearer ${user.token}`,
-          },
-        });
-  
-        if (response.ok) {
-          setReviews(reviews.filter(review => review._id !== reviewId));
-        } else {
-          throw new Error('Failed to delete review');
+    const confirmDelete = window.confirm("Are you sure you want to delete this review?");
+    if (confirmDelete) {
+      if (user && user.token) {
+        try {
+          // Log placeId and reviewId for debugging
+          console.log('Deleting review:', { placeId, reviewId });
+
+          const response = await fetch(`http://localhost:5000/api/places/${placeId}/reviews/${reviewId}`, {
+            method: 'DELETE',
+            headers: {
+              'Authorization': `Bearer ${user.token}`,
+            },
+          });
+
+          if (response.ok) {
+            setReviews(reviews.filter(review => review._id !== reviewId));
+          } else {
+            throw new Error('Failed to delete review');
+          }
+        } catch (error) {
+          setError(error.message);
         }
-      } catch (error) {
-        setError(error.message);
+      } else {
+        setError('User not authenticated or token is missing');
       }
-    } else {
-      setError('User not authenticated or token is missing');
     }
   };
-  
+
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <div>
+    <div className="manage-reviews">
       <h3>Manage Reviews</h3>
-      <ul>
+      <ul className="reviews-list">
         {Array.isArray(reviews) && reviews.map(review => (
-          <li key={review._id}>
-            {review.comment} - {review.fullname}
-            <button onClick={() => handleDeleteReview(review.placeId, review._id)}>Delete</button>
+          <li key={review._id} className="review-item">
+            <p>{review.comment} - <strong>{review.fullname}</strong></p>
+            <button onClick={() => handleDeleteReview(review.placeId, review._id)} className="delete-button">Delete</button>
           </li>
         ))}
       </ul>
@@ -76,4 +79,3 @@ const ManageReviews = () => {
 };
 
 export default ManageReviews;
-

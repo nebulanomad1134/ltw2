@@ -48,7 +48,7 @@ const UploadPlace = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          alert("Place uploaded successfully!");
+          alert("Place added successfully!");
           form.reset();
         })
         .catch((error) => {
@@ -61,7 +61,7 @@ const UploadPlace = () => {
 
   return (
     <div className='upload-place'>
-      <h2>Upload A Place!</h2>
+      <h2>Add A Place!</h2>
       <form onSubmit={handleSubmit}>
         <div className='form-group'>
           <div className='form-field'>
@@ -87,11 +87,13 @@ const UploadPlace = () => {
             </Select>
           </div>
         </div>
-        <div>
-          <Label htmlFor="placeDescription" value="Place Description" />
-          <Textarea id="placeDescription" placeholder="Place Description" required type="text" name='placeDescription' rows={4} />
+        <div className='form-group'>
+          <div className='form-field full-width'>
+            <Label htmlFor="placeDescription" value="Place Description" />
+            <Textarea id="placeDescription" placeholder="Place Description" required type="text" name='placeDescription' rows={4} />
+          </div>
         </div>
-        <Button type="submit">Upload Place</Button>
+        <Button type="submit">Add Place</Button>
       </form>
     </div>
   );

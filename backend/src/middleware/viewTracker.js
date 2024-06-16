@@ -1,4 +1,3 @@
-// middleware/viewTracker.js
 const View = require('../models/View');
 
 const trackViews = async (req, res, next) => {

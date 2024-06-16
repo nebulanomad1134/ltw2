@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import PlaceCards from '../components/PlaceCards';
+import PlaceCards from './PlaceCards';
 import './PopularPlaces.css';
 
 const PopularPlaces = () => {
     const [places, setPlaces] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/api/places").then(res => res.json()).then(data => setPlaces(data.slice(1, 12)));
+        fetch("http://localhost:5000/api/places").then(res => res.json()).then(data => setPlaces(data.slice(1, 13)));
     }, []);
 
     return (

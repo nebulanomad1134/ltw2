@@ -1,34 +1,65 @@
+/* ManagePlaces.css */
+
 .manage-places {
-    padding: 1rem;
-  }
-  
-  .manage-places h2 {
-    margin-bottom: 2rem;
-    font-size: 2rem;
-    font-weight: bold;
-  }
-  
-  .manage-places .table-container {
-    margin-bottom: 2rem;
-  }
-  
-  .manage-places .table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .manage-places .table th,
-  .manage-places .table td {
-    padding: 0.5rem;
-    border: 1px solid #ddd;
-  }
-  
-  .manage-places .table th {
-    background-color: #f4f4f4;
-  }
-  
-  .manage-places .table td a,
-  .manage-places .table td button {
-    margin-right: 0.5rem;
-  }
-  
+  padding: 20px;
+}
+
+.manage-places h2 {
+  margin-bottom: 20px;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.places-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.places-table th, .places-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.places-table th {
+  background-color: #f2f2f2;
+}
+
+.edit-link {
+  margin-right: 10px;
+  color: blue;
+  text-decoration: none;
+}
+
+.edit-link:hover {
+  text-decoration: none;
+}
+
+.edit-button,
+.delete-button2 {
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  margin-right: 8px;
+  text-decoration: none;
+}
+
+.edit-button {
+  background-color: #007bff;
+}
+
+.delete-button2 {
+  background-color: red;
+}
+
+.edit-button:hover,
+.delete-button:hover {
+  opacity: 0.8; 
+}
+
+.edit-link button {
+  text-decoration: none;
+}

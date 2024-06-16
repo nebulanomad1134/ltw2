@@ -74,27 +74,6 @@ const deletePlaceById = async (req, res) => {
     }
 };
 
-// const addReview = async (req, res) => {
-//     const { id } = req.params;
-//     const { rating, comment, email, fullname } = req.body;
-
-//     try {
-//         const place = await Place.findById(id);
-
-//         if (!place) {
-//             return res.status(404).json({ message: 'Place not found' });
-//         }
-
-//         const review = { rating, comment, email, fullname };
-//         place.reviews.push(review);
-//         await place.save();
-
-//         res.status(201).json({ message: 'Review added successfully' });
-//     } catch (error) {
-//         res.status(500).json({ message: 'Failed to add review', error: error.message });
-//     }
-// };
-
 module.exports = {
     getAllPlaces,
     getPlaceById,

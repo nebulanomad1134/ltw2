@@ -1,7 +1,9 @@
 // SideBar.jsx
 import React from 'react';
-import { HiArrowSmRight, HiChartPie, HiInbox, HiShoppingBag, HiSupport, HiTable, HiUser, HiViewBoards, HiOutlineCloudUpload } from 'react-icons/hi';
-import img from '../../src/assets/profile.jpg';
+import { HiChartPie } from 'react-icons/hi';
+import { FaMessage, FaFilePen, FaArchway, FaArrowUpFromBracket  } from "react-icons/fa6";
+
+import img from '../../src/assets/minion.jpg';
 import { Link } from 'react-router-dom';
 import './Sidebar.css';
 
@@ -20,24 +22,20 @@ const SideBar = () => {
           <span>Dashboard</span>
         </Link>
         <Link className="sidebar-item" to="/admin/dashboard/upload">
-          <HiOutlineCloudUpload />
-          <span>Upload Book</span>
+          <FaArrowUpFromBracket  />
+          <span>Add New Place</span>
         </Link>
         <Link className="sidebar-item" to="/admin/dashboard/manage">
-          <HiInbox />
-          <span>Manage Books</span>
+          <FaArchway  />
+          <span>Manage Places</span>
         </Link>
         <Link className="sidebar-item" to="/admin/dashboard/reviews">
-          <HiUser />
+          <FaFilePen  />
           <span>Manage Reviews</span>
         </Link>
-        <Link className="sidebar-item" to="/login">
-          <HiArrowSmRight />
-          <span>Sign In</span>
-        </Link>
-        <Link className="sidebar-item" to="/logout">
-          <HiTable />
-          <span>Log out</span>
+        <Link className="sidebar-item" to="/admin/dashboard/contacts">
+          <FaMessage  />
+          <span>Manage Contact Messages</span>
         </Link>
       </div>
     </div>

@@ -1,4 +1,3 @@
-// controllers/reviewController.js
 const Place = require('../models/Place');
 
 const getAllReviews = async (req, res) => {

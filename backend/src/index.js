@@ -29,7 +29,6 @@ app.use('/api/contacts', contactRoutes);
 app.use('/api/views', viewRoutes);
 
 
-// MongoDB Connection
 mongoose.connect(process.env.MONGODB_URI)
 .then(() => {
     console.log('Connected to MongoDB');

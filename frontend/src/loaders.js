@@ -1,4 +1,3 @@
-// src/loaders.js
 import { json } from 'react-router-dom';
 
 export const placeLoader = async ({ params }) => {

@@ -1,6 +1,4 @@
-import { Table } from 'flowbite-react';
 import React, { useEffect, useState, useContext } from 'react';
-import { Pagination } from 'flowbite-react';
 import { Link } from 'react-router-dom';
 import AuthContext from '../context/AuthContext';
 import './ManagePlaces.css';
@@ -22,30 +20,27 @@ const ManagePlaces = () => {
   }, [user.token]);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/api/places/${id}`, {
-      method: "DELETE",
-      headers: {
-        "Authorization": `Bearer ${user.token}`,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        // Handle deletion success
-        setAllPlaces(allPlaces.filter(place => place._id !== id));
-      });
-  };
-
-  const [currentPage, setCurrentPage] = useState(1);
-
-  const onPageChange = (page) => {
-    setCurrentPage(page);
+    const confirmDelete = window.confirm("Are you sure you want to delete this place?");
+    if (confirmDelete) {
+      fetch(`http://localhost:5000/api/places/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Authorization": `Bearer ${user.token}`,
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          // Handle deletion success
+          setAllPlaces(allPlaces.filter(place => place._id !== id));
+        });
+    }
   };
 
   return (
     <div className='manage-places'>
       <h2>Manage Your Places Inventory!</h2>
       <div className="table-container">
-        <table className="table">
+        <table className="places-table">
           <thead>
             <tr>
               <th>No.</th>
@@ -65,24 +60,15 @@ const ManagePlaces = () => {
                 <td>{place.location}</td>
                 <td>{place.type}</td>
                 <td>
-                  <Link to={`/admin/dashboard/edit-places/${place._id}`} className="edit-link">Edit</Link>
-                  <button onClick={() => handleDelete(place._id)}>Delete</button>
+                  <Link to={`/admin/dashboard/edit-places/${place._id}`} className="edit-link">
+                  <button className="edit-button">Edit</button>
+                  </Link>
+                  <button className="delete-button2" onClick={() => handleDelete(place._id)}>Delete</button>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
-      </div>
-      <div className="pagination">
-        <Pagination
-          currentPage={currentPage}
-          layout="pagination"
-          nextLabel="Go forward"
-          onPageChange={onPageChange}
-          previousLabel="Go back"
-          showIcons
-          totalPages={1000}
-        />
       </div>
     </div>
   );

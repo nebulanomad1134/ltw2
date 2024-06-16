@@ -1,4 +1,3 @@
-// routes/viewRoutes.js
 const express = require('express');
 const { getViewCount, incrementViewCount } = require('../controllers/viewController');
 

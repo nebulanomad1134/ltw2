@@ -1,0 +1,33 @@
+
+.manage-contacts {
+    padding: 2rem;
+    background-color: #f9f9f9;
+}
+
+.manage-contacts h3 {
+    font-size: 23px;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.manage-contacts ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.manage-contacts li {
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.manage-contacts li p {
+    margin: 0.5rem 0;
+    color: #666;
+    font-size: 23px;
+
+}
+
+.manage-contacts li p strong {
+    color: #333;
+}
+

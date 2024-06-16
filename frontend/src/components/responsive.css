@@ -1,0 +1,28 @@
+/* Centralized breakpoints */
+@media (max-width: 1200px) {
+    .responsive-container {
+        padding: 1.5rem;
+    }
+
+    .responsive-heading {
+        font-size: 1.75rem;
+    }
+
+    .responsive-text {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 800px) {
+    .responsive-container {
+        padding: 1rem;
+    }
+
+    .responsive-heading {
+        font-size: 1.5rem;
+    }
+
+    .responsive-text {
+        font-size: 0.9rem;
+    }
+}
