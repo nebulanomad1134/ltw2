@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useCookies } from 'react-cookie';
+import { Link } from 'react-router-dom';
 import './Popup.css';
 
 const Popup = ({ place, onClose }) => {
@@ -8,7 +9,9 @@ const Popup = ({ place, onClose }) => {
       <div className="popup">
         <div className="popup-content">
           <h2>{place.name}</h2>
+          <img src={place.image} alt={place.name} className="popup-image" />
           <p>{place.description}</p>
+          <Link to={`/place/${place._id}`} className="popup-link">View Place</Link>
           <button onClick={onClose}>Close</button>
         </div>
       </div>
@@ -33,7 +36,7 @@ const PopupManager = ({ places, placeIds }) => {
 
       const timer = setTimeout(() => {
         setShowPopup(true);
-      }, 10000); // 1 minute
+      }, 10000); // 10 seconds
 
       return () => clearTimeout(timer);
     }

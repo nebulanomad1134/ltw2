@@ -29,7 +29,6 @@ const Dashboard = () => {
   return (
     <div>
       <TotalViewsTab />
-      {/* Other components or tabs can be added here */}
     </div>
   );
 };

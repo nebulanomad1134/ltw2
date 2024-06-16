@@ -1,5 +1,5 @@
-// Contact.jsx
 import React, { useState } from 'react';
+import './Contact.css';
 
 const Contact = () => {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
@@ -19,14 +19,16 @@ const Contact = () => {
         body: JSON.stringify(form),
       });
       const data = await res.json();
-      setResponse(data.message);
+      // setResponse(data.message);
+      setResponse("Thank you for contacting us.");
+      setForm({ name: '', email: '', message: '' });
     } catch (error) {
-      setResponse('Failed to send message');
+      setResponse('Failed to send message. Please try again later.');
     }
   };
 
   return (
-    <div>
+    <div className="contact-form">
       <h3>Contact Us</h3>
       <form onSubmit={handleSubmit}>
         <label>
@@ -43,7 +45,7 @@ const Contact = () => {
         </label>
         <button type="submit">Send</button>
       </form>
-      {response && <div>{response}</div>}
+      {response && <div className="response">{response}</div>}
     </div>
   );
 };

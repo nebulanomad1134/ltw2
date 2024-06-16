@@ -15,6 +15,7 @@ import EditPlaces from './Dashboard/EditPlaces';
 import ManagePlaces from './Dashboard/ManagePlaces';
 import UploadPlace from './Dashboard/UploadPlace';
 import ManageReviews from './Dashboard/ManageReviews';
+import ManageContacts from './Dashboard/ManageContacts';
 import { AuthProvider } from './context/AuthContext';
 import { placeLoader } from './loaders';
 
@@ -35,7 +36,9 @@ const router = (
           <Route path="upload" element={<UploadPlace />} />
           <Route path="manage" element={<ManagePlaces />} />
           <Route path="edit-places/:id" element={<EditPlaces />} />
-          <Route path="/admin/dashboard/reviews" element={<ManageReviews />} />
+          <Route path="reviews" element={<ManageReviews />} />
+          <Route path="contacts" element={<ManageContacts />} />
+
         </Route>
       </Routes>
     </AuthProvider>

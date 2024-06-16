@@ -1,0 +1,60 @@
+/* ManageContacts.css */
+
+.manage-contacts {
+    padding: 2rem;
+    background-color: #f9f9f9;
+}
+
+.manage-contacts h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.manage-contacts ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.manage-contacts li {
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.manage-contacts li p {
+    margin: 0.5rem 0;
+    color: #666;
+}
+
+.manage-contacts li p strong {
+    color: #333;
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+    .manage-contacts {
+        padding: 1.5rem;
+    }
+
+    .manage-contacts h3 {
+        font-size: 1.25rem;
+    }
+
+    .manage-contacts li {
+        padding: 0.75rem;
+    }
+}
+
+@media (max-width: 800px) {
+    .manage-contacts {
+        padding: 1rem;
+    }
+
+    .manage-contacts h3 {
+        font-size: 1rem;
+    }
+
+    .manage-contacts li {
+        padding: 0.5rem;
+    }
+}

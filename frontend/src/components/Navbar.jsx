@@ -1,16 +1,11 @@
-import React, { useContext, useState } from 'react';
-import { FaXmark, FaBarsStaggered, FaBlog } from "react-icons/fa6";
+import React, { useContext } from 'react';
+import { AiTwotoneCar  } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import AuthContext from '../context/AuthContext';
 import './Navbar.css';
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
 
   const navItems = [
     { link: "Home", path: "/" },
@@ -27,27 +22,32 @@ const Navbar = () => {
       <nav className="navbar">
         <div className="nav-content">
           <Link to="/" className="brand">
-            <FaBlog className="icon" />
-            Books
+            <AiTwotoneCar  className="icon" />
+            TravelHanoi
           </Link>
-          <ul className={`nav-items ${isMenuOpen ? 'open' : ''}`}>
+          <ul className="nav-items">
             {navItems.map(({ link, path }) => (
-              <Link key={link} to={path} className="nav-link" onClick={toggleMenu}>
-                {link}
-              </Link>
+              <li key={link}>
+                <Link to={path} className="nav-link">
+                  {link}
+                </Link>
+              </li>
             ))}
             {user ? (
-              <button onClick={logout} className="nav-link">Logout</button>
+              <li>
+                <button onClick={logout} className="nav-link logout-button">Logout</button>
+              </li>
             ) : (
               <>
-                <Link to="/login" className="nav-link" onClick={toggleMenu}>Login</Link>
-                <Link to="/signup" className="nav-link" onClick={toggleMenu}>Register</Link>
+                <li>
+                  <Link to="/login" className="nav-link">Login</Link>
+                </li>
+                <li>
+                  <Link to="/signup" className="nav-link">Register</Link>
+                </li>
               </>
             )}
           </ul>
-          <button className="menu-toggle" onClick={toggleMenu}>
-            {isMenuOpen ? <FaXmark /> : <FaBarsStaggered />}
-          </button>
         </div>
       </nav>
     </header>
