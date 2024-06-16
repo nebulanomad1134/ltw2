@@ -31,7 +31,7 @@
 }
 
 textarea {
-  resize: none;
+  max-width: 700px;
 }
 
 button {

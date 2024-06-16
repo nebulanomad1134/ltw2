@@ -36,7 +36,7 @@ const PopupManager = ({ places, placeIds }) => {
 
       const timer = setTimeout(() => {
         setShowPopup(true);
-      }, 10000); // 10 seconds
+      }, 60000); // time to pop up
 
       return () => clearTimeout(timer);
     }

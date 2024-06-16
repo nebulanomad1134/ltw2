@@ -1,5 +1,3 @@
-/* Login.css */
-
 .login-container, .signup-container {
   display: flex;
   flex-direction: column;

@@ -17,7 +17,7 @@
 }
 
 .place-card {
-    background-color: #f8f9fa;
+    background-color: #EEF0F2;
     padding: 1rem;
     border-radius: 0.5rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -35,12 +35,14 @@
     margin-top: 1rem;
 }
 
-.place-card h3 {
-    font-size: 1.25rem;
+.place-card .info h3 {
+    color: #1C1C1C;
     font-weight: bold;
-}
-
-.place-card p {
-    margin: 0.5rem 0;
-    color: #333;
-}
+    font-size: 26px;
+  }
+  
+  .place-card .info p {
+    color: #31263E;
+    font-style: italic;
+    font-size: 20px;
+  }

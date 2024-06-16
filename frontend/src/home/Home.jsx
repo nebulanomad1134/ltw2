@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Banner } from '../components/Banner';
+import { Banner } from './Banner';
 import PopularPlaces from './PopularPlaces';
 import PopupManager from '../components/Popup';
 

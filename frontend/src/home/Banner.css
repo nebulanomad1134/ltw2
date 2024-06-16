@@ -1,13 +1,13 @@
 
 .banner {
-    background-image: url('../assets/banner.jpg'); /* Adjust the path as needed */
+    background-image: url('../assets/banner.jpg'); 
     background-size: cover;
     background-position: center;
     padding: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 70px;
+    margin-top: 10px;
     
 }
 
@@ -29,6 +29,6 @@
 }
 
 .banner-content p {
-    font-size: 1rem;
+    font-size: 20px;
     color: #666;
 }

@@ -1,4 +1,3 @@
-// controllers/viewController.js
 const View = require('../models/View');
 
 const getViewCount = async (req, res) => {

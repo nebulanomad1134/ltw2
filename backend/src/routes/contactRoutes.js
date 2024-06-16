@@ -1,4 +1,3 @@
-// routes/contactRoutes.js
 const express = require('express');
 const { addContact, getContacts } = require('../controllers/contactController');
 const { protect, admin } = require('../middleware/auth');
